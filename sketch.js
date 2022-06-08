@@ -4,11 +4,11 @@ var height;
 
 function preload(){
    bg =loadImage("Images/cityImage.png");
-   balloonImage1=loadAnimation("Images/HotAirBallon-01.png");
-   balloonImage2=loadAnimation("Images/HotAirBallon-01.png","Images/HotAirBallon-01.png",
-   "Images/HotAirBallon-01.png","Images/HotAirBallon-02.png","Images/HotAirBallon-02.png",
-   "Images/HotAirBallon-02.png","Images/HotAirBallon-03.png","Images/HotAirBallon-03.png","Images/HotAirBallon-03.png");
-  }
+   balloonImage1=loadAnimation("Images/HotAirBallon01.png");
+   balloonImage2=loadAnimation("Images/HotAirBallon01.png","Images/HotAirBallon01.png",
+   "Images/HotAirBallon01.png","Images/HotAirBallon02.png","Images/HotAirBallon02.png",
+   "Images/HotAirBallon02.png","Images/HotAirBallon03.png","Images/HotAirBallon03.png","Images/HotAirBallon03.png");
+}
 
 //Function to set initial environment
 function setup() {
@@ -31,19 +31,23 @@ function draw() {
   if(keyDown(LEFT_ARROW)){
     updateHeight(-10,0);
     //add the animation of balloon [use balloonImage2]
-  }
+    balloonImage2.addAnimation("hotAirBalloon")
+  } 
   else if(keyDown(RIGHT_ARROW)){
     updateHeight(10,0);
     //add the animation of balloon [use balloonImage2]
+    balloonImage2.addAnimation("hotAirBalloon")
   }
   else if(keyDown(UP_ARROW)){
     updateHeight(0,-10);
  //add the animation of balloon [use balloonImage2]
+ balloonImage2.addAnimation("hotAirBalloon")
     balloon.scale=balloon.scale -0.005;
   }
   else if(keyDown(DOWN_ARROW)){
     updateHeight(0,+10);
   //add the animation of balloon [use balloonImage2]
+  balloonImage2.addAnimation("hotAirBalloon")
     balloon.scale=balloon.scale+0.005;
   }
 
@@ -69,6 +73,11 @@ function updateHeight(x,y){
 function readHeight(data){
   //assign the value of data to height
   //assign the x and y value of height to the respective x and y position of balloon
+  height = data.val()
+  balloon.x = position.x
+  balloon.y = position.y
+
+  
  }
 
 function showError(){
