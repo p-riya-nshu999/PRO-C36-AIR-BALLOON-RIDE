@@ -31,23 +31,24 @@ function draw() {
   if(keyDown(LEFT_ARROW)){
     updateHeight(-10,0);
     //add the animation of balloon [use balloonImage2]
-    balloonImage2.addAnimation("hotAirBalloon")
+    balloonImage2.addAnimation("hotAirBalloon",balloonImage2)
   } 
   else if(keyDown(RIGHT_ARROW)){
     updateHeight(10,0);
     //add the animation of balloon [use balloonImage2]
-    balloonImage2.addAnimation("hotAirBalloon")
+   
+     balloonImage2.addAnimation("hotAirBalloon",balloonImage2)
   }
   else if(keyDown(UP_ARROW)){
     updateHeight(0,-10);
  //add the animation of balloon [use balloonImage2]
- balloonImage2.addAnimation("hotAirBalloon")
+balloonImage2.addAnimation("hotAirBalloon",balloonImage2)
     balloon.scale=balloon.scale -0.005;
   }
   else if(keyDown(DOWN_ARROW)){
     updateHeight(0,+10);
   //add the animation of balloon [use balloonImage2]
-  balloonImage2.addAnimation("hotAirBalloon")
+ balloonImage2.addAnimation("hotAirBalloon",balloonImage2)
     balloon.scale=balloon.scale+0.005;
   }
 
